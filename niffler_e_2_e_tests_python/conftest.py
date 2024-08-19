@@ -3,6 +3,7 @@ import os
 import pytest
 from dotenv import load_dotenv
 from selene import browser
+from faker import Faker
 from niffler_e_2_e_tests_python.model.app import auth_page
 from niffler_e_2_e_tests_python.api.user import User
 
@@ -73,3 +74,7 @@ def login_page(browser_management, frontend_url):
 @pytest.fixture()
 def main_page(auth_completed, frontend_url):
     browser.open(frontend_url)
+
+@pytest.fixture()
+def faker():
+    return Faker()
